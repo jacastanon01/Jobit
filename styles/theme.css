@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-slate-600;
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-[22px] sm:text-[32px] font-bold leading-8 sm:leading-10;
+  }
+
+  h2 {
+    @apply text-base sm:text-2xl font-bold leading-loose;
+  }
+  h3 {
+    @apply text-2xl font-semibold leading-loose;
+  }
+  h4 {
+    @apply text-[22px] font-bold leading-loose;
+  }
+  h5 {
+    @apply text-[22px] font-semibold leading-loose;
+  }
+
+  /* Body L */
+  .body-l {
+    @apply text-lg font-normal leading-normal;
+  }
+  .body-l-medium {
+    @apply text-lg font-medium leading-normal;
+  }
+  .body-l-semibold {
+    @apply text-lg font-semibold leading-normal;
+  }
+  .body-l-bold {
+    @apply text-lg font-bold leading-normal;
+  }
+
+  /* Body M */
+  .body-m {
+    @apply text-base font-normal leading-normal;
+  }
+  .body-m-medium {
+    @apply text-base font-medium leading-normal;
+  }
+  .body-m-semibold {
+    @apply text-base font-semibold leading-normal;
+  }
+  .body-m-bold {
+    @apply text-base font-bold leading-normal;
+  }
+
+  /* Body Base */
+  .body-base {
+    @apply text-[15px] font-normal leading-normal;
+  }
+  .body-base-medium {
+    @apply text-[15px] font-medium leading-normal;
+  }
+  .body-base-semibold {
+    @apply text-[15px] font-semibold leading-normal;
+  }
+  .body-base-bold {
+    @apply text-[15px] font-bold leading-normal;
+  }
+
+  /* Body SM */
+  .body-sm {
+    @apply text-sm font-normal leading-normal;
+  }
+  .body-sm-medium {
+    @apply text-sm font-medium leading-normal;
+  }
+  .body-sm-semibold {
+    @apply text-sm font-semibold leading-normal;
+  }
+  .body-sm-bold {
+    @apply text-sm font-bold leading-normal;
+  }
+
+  /* Body XS */
+  .body-xs {
+    @apply text-[13px] font-normal leading-normal;
+  }
+  .body-xs-medium {
+    @apply text-[13px] font-medium leading-normal;
+  }
+  .body-xs-semibold {
+    @apply text-[13px] font-semibold leading-normal;
+  }
+  .body-xs-bold {
+    @apply text-[13px] font-bold leading-normal;
+  }
+
+  /*main container*/
+
+  .main-container {
+    @apply max-w-[1440px] px-6 xl:px-20  mx-auto;
+  }
+  .customBold {
+    text-stroke: 0.7px #0bab7c;
+    -webkit-text-stroke: 0.7px #0bab7c;
+  }
+
+  select#employee-type option[value=''] {
+    display: none;
+  }
+  .rdp-vhidden {
+    @apply hidden;
+  }
+}

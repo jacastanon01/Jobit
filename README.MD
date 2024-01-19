@@ -1,25 +1,28 @@
 ![Jobit](https://gcdnb.pbrd.co/images/gfihVlbEfT9X.jpg?o=1)
 
-## Overview
+## 📝 Overview
 
-Jobit is a job search application designed for developers. It streamlines the job search process with recommendations, search functionality, and salary estimations based on location.
+Jobit is a job search application designed for developers. It streamlines the job search process with recommendations, search functionality, and salary estimations based on location. Job listings are sourced from the [jsearch api](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) and uses the google maps api to present you with the latest jobs in your area.
 
-## Demo video
+## 🔗 Links
 
-You can find a video demonstrating the project [here](https://www.loom.com/share/429658f8a5f34d12b9f9195e7a365b4f)
+- 💼 [Demo video](https://www.loom.com/share/429658f8a5f34d12b9f9195e7a365b4f)
+- 🌎 [Live site](https://jobit-codemigos.vercel.app/)
+- ⭐️ [Github Repo](https://github.com/jacastanon01/Jobit/)
 
 ## Features
 
 - Job search recommendations
-- Advanced search engine
-- Salary estimations
+- Advanced search engine with filter functionality
+- Browse all the job listings from your favorite companies
+- Salary estimations based on job title, location, etc
 - Profile and portfolio creation
 - Ability to save job listings
 
 ## Technologies Used
 
 - Next.js
-- Supabase (Storage, Auth, Databse)
+- Supabase (Storage, Auth, Database)
 - Vitest
 - JSearch API
 - Tailwind CSS
@@ -30,7 +33,7 @@ You can find a video demonstrating the project [here](https://www.loom.com/share
 ## Installation
 
 ```bash
-git clone https://github.com/JavaScript-Mastery-PRO/Cohort6_Codemigos_Jobit.git
+git clone https://github.com/jacastanon01/Jobit
 npm install
 ```
 
@@ -47,14 +50,11 @@ SUPABASE_SECRET_KEY=[SUPABASE SECRET SERVICE KEY]
 ```
 
 Launch the project on local host:
+
 ```bash
 npm run dev
 ```
 
-## Deployed application
-
-You can find the deployed project here: [Live Link](https://cohort6-codemigos-jobit-three.vercel.app/)
-
-## Acknowledgements
+## 🤝 Acknowledgements
 
 Thanks to the JSMastery Team - Adrian, Brandon, Christopher, and all the mentors for guiding our team during the project and help us grow as software engineers.

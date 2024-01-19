@@ -16,13 +16,13 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cohort6-codemigos-jobit.vercel.app/'),
+  metadataBase: new URL('https://jobit-codemigos.vercel.app/'),
   title: 'Jobit',
   description: 'Find your next engineer job in days, not months.',
   openGraph: {
     title: 'Jobit',
     description: 'Find your next engineer job in days, not months.',
-    url: 'https://cohort6-codemigos-jobit.vercel.app/',
+    url: 'https://jobit-codemigos.vercel.app/',
     siteName: 'Jobit',
     images: [
       {

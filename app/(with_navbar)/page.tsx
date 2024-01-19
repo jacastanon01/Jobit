@@ -3,6 +3,7 @@ import LatestSearchResults from '@/components/HomePage/JobCards/LatestSearchResu
 import CompanySearchResults from '@/components/HomePage/CompanyCards/CompanySearchResults';
 import RecSearchResults from '@/components/HomePage/RecommendedCards/RecSearchResults';
 import Link from 'next/link';
+import moment from 'moment';
 // import { Suspense } from 'react';
 // import { SearchResultsLoader } from "@/components/JobSearchPage";
 
@@ -12,9 +13,9 @@ export default function Home() {
       <h1 className='mb-4 text-base-black dark:text-white max-sm:mb-10 max-sm:text-[22px]'>
         Welcome to the Job Search Platform for Developers
       </h1>
-      <h5 className='mb-8 text-xl text-natural-6 max-sm:hidden'>
-        Monday, 13 Jan 2023
-      </h5>
+      <h2 className='mb-[30px] text-base font-medium leading-6 text-natural-6 sm:text-[20px] sm:leading-8'>
+        {moment().format('dddd, DD MMM YYYY')}
+      </h2>
       <div className='flex gap-x-7 max-lg:flex-col'>
         <section>
           <div className='flex max-w-[840px] justify-between  max-lg:max-w-[976px]'>

@@ -46,17 +46,16 @@ export default function RootLayout({
   return (
     <html lang='en' className={`font-sans ${theme?.value}`}>
       <ThemeProvider defaultMode={theme?.value || ''}>
-        <LocationProvider>
-          <body
-            className={cn(
-              'min-h-screen bg-[#F9FAFC] dark:bg-darkbg-1 font-sans antialiased',
-              fontSans.variable,
-            )}
-          >
-            {children}
-            <Toaster />
-          </body>
-        </LocationProvider>
+        <LocationProvider />
+        <body
+          className={cn(
+            'min-h-screen bg-[#F9FAFC] dark:bg-darkbg-1 font-sans antialiased',
+            fontSans.variable,
+          )}
+        >
+          {children}
+          <Toaster />
+        </body>
       </ThemeProvider>
     </html>
   );

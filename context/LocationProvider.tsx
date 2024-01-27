@@ -1,16 +1,8 @@
 'use client';
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { setCookie } from 'cookies-next';
-interface LocationType {
-  location: string;
-  setLocation: React.Dispatch<React.SetStateAction<string>>;
-}
 
-const LocationContext = createContext<LocationType | undefined>(undefined);
-
-export function LocationProvider({ children }: { children: React.ReactNode }) {
-  const [location, setLocation] = useState<string>('');
-
+export function LocationProvider() {
   async function reverseGeocode(lat: string, lon: string) {
     const url = `https://geocode.maps.co/reverse?lat=${lat}&lon=${lon}`;
     try {
@@ -20,6 +12,7 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       }
 
       const data = await response.json();
+      console.log({ data });
       // Assuming the API returns a JSON response with the data you need
       return data;
     } catch (error) {
@@ -28,7 +21,7 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const getLocation = async () => {
+  const getLocation = useCallback(async () => {
     const successCallback = async (geolocation: any) => {
       const location = await reverseGeocode(
         geolocation.coords.latitude,
@@ -36,12 +29,10 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       );
       location?.address?.country &&
         setCookie('location', location.address.country);
-      setLocation(geolocation);
     };
 
     const errorCallback = (error: any) => {
-      console.log(error);
-      setLocation('');
+      console.error('Error getting geolocation', error);
     };
 
     const geolocationOptions = {
@@ -50,7 +41,7 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       timeout: 5000,
     };
 
-    if ('geolocation' in navigator) {
+    if (navigator.geolocation) {
       // Access the API
       navigator.geolocation.getCurrentPosition(
         successCallback,
@@ -61,25 +52,11 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       // Use a third-party geolocation service
       console.log('Browser does not support the Geolocation API');
     }
-  };
+  }, []);
 
   useEffect(() => {
     getLocation();
-  }, [location]);
+  }, [getLocation]);
 
-  return (
-    <LocationContext.Provider value={{ location, setLocation }}>
-      {children}
-    </LocationContext.Provider>
-  );
-}
-
-export function useLocationContext() {
-  const context = useContext(LocationContext);
-
-  if (context === undefined) {
-    throw new Error('useLocation must be used within a ThemeProvider');
-  }
-
-  return context;
+  return null;
 }

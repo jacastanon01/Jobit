@@ -2,14 +2,14 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { setCookie } from 'cookies-next';
 interface LocationType {
-  mode: string;
-  setMode: React.Dispatch<React.SetStateAction<string>>;
+  location: string;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const LocationContext = createContext<LocationType | undefined>(undefined);
 
 export function LocationProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState('');
+  const [location, setLocation] = useState<string>('');
 
   async function reverseGeocode(lat: string, lon: string) {
     const url = `https://geocode.maps.co/reverse?lat=${lat}&lon=${lon}`;
@@ -36,11 +36,12 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       );
       location?.address?.country &&
         setCookie('location', location.address.country);
-      setMode(geolocation);
+      setLocation(geolocation);
     };
 
     const errorCallback = (error: any) => {
       console.log(error);
+      setLocation('');
     };
 
     const geolocationOptions = {
@@ -64,10 +65,10 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     getLocation();
-  }, [mode]);
+  }, [location]);
 
   return (
-    <LocationContext.Provider value={{ mode, setMode }}>
+    <LocationContext.Provider value={{ location, setLocation }}>
       {children}
     </LocationContext.Provider>
   );

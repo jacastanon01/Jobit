@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useCallback } from 'react';
 import { setCookie } from 'cookies-next';
 
@@ -36,9 +37,7 @@ export function LocationProvider() {
     };
 
     const geolocationOptions = {
-      enableHighAccuracy: true,
-      maximumAge: 10000,
-      timeout: 5000,
+      timeout: 1000,
     };
 
     if (navigator.geolocation) {
